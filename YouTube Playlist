@@ -1,0 +1,15 @@
+import time
+from pytube import Playlist, YouTube
+
+playlist = Playlist("PLAYLIST URL")  # It must be a link which contains a list from YouTube
+
+for video in playlist:
+    print("Download starting, wait...")
+    time.sleep(2)
+    print("=============================")
+    time.sleep(2)
+    print(YouTube(video).title)
+    YouTube(video).streams.get_highest_resolution().download("PATH WHERE THE PLAYLIST IS GOING TO BE DOWNLOADED")
+    time.sleep(2)
+    print("Download completed! Enjoy!")
+    print("*" * 10 + " FINISHED " + "*" * 10)
